@@ -1,9 +1,11 @@
 package com.firewall.linkedinlite.controller;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -141,5 +143,9 @@ public class EmployeeController {
 	public ResponseStructure<Employee> updateExperience(@PathVariable int emid) {
 		return service.updateExperience(emid);
 	}
+	@Scheduled(fixedRate = 2000)
+public void hi() {
+	System.out.println("hii method is invoked"+LocalDateTime.now());
+}
 
 }
